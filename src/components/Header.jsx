@@ -17,7 +17,7 @@ function Header() {
           </li>
           <li className="nav-item">
             <NavLink to="/a-propos" className="nav-link">
-              À propos
+              A Propos
             </NavLink>
           </li>
         </ul>

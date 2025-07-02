@@ -1,12 +1,13 @@
 import Banner from '../components/Banner/Banner'
 import Collapse from '../components/Collapse/Collapse'
-import bannerImg from '../images/banner.png'
+import bannerImg from '../images/banner-a-propos.png'
+import bannerMobileImg from '../images/banner-a-proposm.png'
 import './About.scss'
 
 function About() {
   return (
     <div className="apropos">
-      <Banner image={bannerImg} />
+      <Banner image={bannerImg} mobileImage={bannerMobileImg} />
       <div className="apropos__content">
         <div className="apropos__collapses">
           <Collapse title="Fiabilité">

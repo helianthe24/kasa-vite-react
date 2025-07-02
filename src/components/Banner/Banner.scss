@@ -6,6 +6,7 @@
 
 .banner {
   @include container;
+  margin-top: 50px;
   margin-bottom: $spacing-2xl;
 
   @media (max-width: $mobile) {
@@ -36,17 +37,10 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-    }
 
-    // Overlay sombre
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: $banner-overlay;
+      @media (max-width: $mobile) {
+        background-image: var(--banner-image-mobile);
+      }
     }
   }
 
@@ -55,7 +49,7 @@
     z-index: 2;
     color: $white;
     font-size: $font-size-3xl;
-    font-weight: $font-weight-medium;
+    font-weight: $font-weight-bold;
     text-align: center;
     max-width: 705px;
 
@@ -69,6 +63,8 @@
   // Variante sans texte (pour la page À propos)
   &--no-text {
     .banner__container {
+      height: $banner-height;
+
       @media (max-width: $mobile) {
         height: $banner-height-mobile;
       }

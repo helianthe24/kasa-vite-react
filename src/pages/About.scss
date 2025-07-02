@@ -6,7 +6,6 @@
 
 .apropos {
   @include container;
-  min-height: calc(100vh - #{$header-height} - 209px);
 
   &__content {
     max-width: 1023px;
@@ -27,6 +26,7 @@
     @media (max-width: $mobile) {
       gap: $spacing-lg;
       margin-top: 19px;
+      margin-bottom: $spacing-xl;
     }
   }
 

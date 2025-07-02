@@ -6,6 +6,7 @@
 
 .logement {
   @include container;
+  margin-top: 50px;
   min-height: calc(100vh - #{$header-height} - 209px);
 
   &__info {
@@ -40,7 +41,7 @@
   }
 
   &__location {
-    color: $primary-color;
+    color: $text-color;
     font-size: $font-size-lg;
     font-weight: $font-weight-medium;
     margin-bottom: $spacing-xl;
