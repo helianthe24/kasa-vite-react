@@ -1,0 +1,51 @@
+@use '../styles/main' as *;
+
+// ===============================================
+// A PROPOS PAGE
+// ===============================================
+
+.apropos {
+  @include container;
+  min-height: calc(100vh - #{$header-height} - 209px);
+
+  &__content {
+    max-width: 1023px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+
+    @media (max-width: $mobile) {
+      padding: 0;
+    }
+  }
+
+  &__collapses {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xl;
+    margin-top: $spacing-xl;
+
+    @media (max-width: $mobile) {
+      gap: $spacing-lg;
+      margin-top: 19px;
+    }
+  }
+
+  // Styles spécifiques pour les collapses de la page À propos
+  .collapse {
+    margin-bottom: 0;
+
+    &__header {
+      @media (max-width: $mobile) {
+        padding: 10px 18px 10px 12px;
+      }
+    }
+
+    &__content {
+      @media (max-width: $mobile) {
+        .collapse__inner {
+          padding: 36px 12px 13px;
+        }
+      }
+    }
+  }
+}

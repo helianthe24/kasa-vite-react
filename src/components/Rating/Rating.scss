@@ -1,0 +1,45 @@
+@use '../../styles/main' as *;
+
+// ===============================================
+// RATING COMPONENT
+// ===============================================
+
+.rating {
+  display: flex;
+  gap: $spacing-sm;
+
+  @media (max-width: $mobile) {
+    gap: 2px;
+  }
+
+  &__star {
+    width: 30px;
+    height: 30px;
+
+    @media (max-width: $mobile) {
+      width: 15px;
+      height: 15px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: $star-inactive;
+      transition: fill $transition-fast;
+    }
+
+    // Étoile active
+    &--active {
+      svg {
+        fill: $star-active;
+      }
+    }
+
+    // Étoile inactive
+    &--inactive {
+      svg {
+        fill: $star-inactive;
+      }
+    }
+  }
+}

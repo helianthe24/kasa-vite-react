@@ -1,6 +1,39 @@
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+@use '../styles/main' as *;
+
+// ===============================================
+// HOME PAGE
+// ===============================================
+
+.home {
+  min-height: calc(
+    100vh - #{$header-height} - 209px
+  ); // Hauteur - header - footer
+
+  &__cards {
+    @include container;
+    padding: 56px $container-padding 43px;
+    background-color: $grey-light;
+    border-radius: $border-radius-lg;
+
+    @media (max-width: $mobile) {
+      background-color: transparent;
+      padding: 22px 0 27px;
+    }
+  }
+
+  &__cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 60px;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @media (max-width: $mobile) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
 }

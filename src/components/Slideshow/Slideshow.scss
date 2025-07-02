@@ -1,44 +1,96 @@
+@use '../../styles/main' as *;
+
+// ===============================================
+// SLIDESHOW COMPONENT
+// ===============================================
+
 .slideshow {
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 415px;
+  border-radius: $border-radius-lg;
   overflow: hidden;
+  margin-bottom: $spacing-xl;
 
-  img {
+  @media (max-width: $mobile) {
+    height: 255px;
+    border-radius: $border-radius-md;
+    margin-bottom: $spacing-md;
+  }
+
+  &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    transition: opacity 0.5s ease;
+    object-position: center;
   }
 
-  .prev,
-  .next {
+  // Navigation arrows
+  &__arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    font-size: 3rem;
-    color: white;
     cursor: pointer;
-    z-index: 1;
+    z-index: 2;
+    width: 96px;
+    height: 120px;
+    padding: 0;
+
+    @media (max-width: $mobile) {
+      width: 24px;
+      height: 24px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      fill: $white;
+    }
+
+    &--prev {
+      left: 23px;
+
+      @media (max-width: $mobile) {
+        left: 6px;
+      }
+    }
+
+    &--next {
+      right: 23px;
+
+      @media (max-width: $mobile) {
+        right: 6px;
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
-  .prev {
-    left: 20px;
-  }
-
-  .next {
-    right: 20px;
-  }
-
-  .counter {
+  // Compteur de slides
+  &__counter {
     position: absolute;
-    bottom: 15px;
-    right: 50%;
-    transform: translateX(50%);
-    color: white;
-    font-weight: bold;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    z-index: 2;
+
+    @media (max-width: $mobile) {
+      display: none; // Masqué sur mobile
+    }
+  }
+
+  // Si une seule image, masquer les contrôles
+  &--single {
+    .slideshow__arrow,
+    .slideshow__counter {
+      display: none;
+    }
   }
 }

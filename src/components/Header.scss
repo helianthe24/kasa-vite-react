@@ -1,20 +1,70 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
+@use '../styles/main' as *;
 
-  nav {
-    display: flex;
-    gap: 20px;
+// ===============================================
+// HEADER COMPONENT
+// ===============================================
+
+.header {
+  @include container;
+  @include flex-between;
+  height: $header-height;
+  padding-top: $spacing-xl;
+  padding-bottom: $spacing-lg;
+
+  @media (max-width: $mobile) {
+    padding-top: $spacing-lg;
+    padding-bottom: $spacing-md;
+    height: auto;
+    min-height: 47px;
   }
 
-  a {
-    text-decoration: none;
-    color: #000;
+  &__logo {
+    height: 47px;
+    width: auto;
 
-    &.active {
-      text-decoration: underline;
+    @media (max-width: $mobile) {
+      height: 47px;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
+  &__nav {
+    .nav-list {
+      display: flex;
+      gap: 57px;
+
+      @media (max-width: $mobile) {
+        gap: 10px;
+      }
+    }
+
+    .nav-item {
+      .nav-link {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-medium;
+        color: $primary-color;
+        text-decoration: none;
+        position: relative;
+        transition: $transition-base;
+
+        @media (max-width: $mobile) {
+          font-size: $font-size-xs;
+          text-transform: uppercase;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        // État actif
+        &.active {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

@@ -1,17 +1,21 @@
-import redStar from '../../images/red-star.png'
-import greyStar from '../../images/grey-star.png'
+import './Rating.scss'
 
 function Rating({ rating }) {
   const stars = []
 
   for (let i = 1; i <= 5; i++) {
-    const star = i <= rating ? redStar : greyStar
+    const isActive = i <= rating
     stars.push(
-      <img
+      <div
         key={i}
-        src={star}
-        alt={i <= rating ? 'Étoile rouge' : 'Étoile grise'}
-      />
+        className={`rating__star ${
+          isActive ? 'rating__star--active' : 'rating__star--inactive'
+        }`}
+      >
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      </div>
     )
   }
 

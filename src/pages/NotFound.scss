@@ -1,0 +1,63 @@
+@use '../styles/main' as *;
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem 1rem;
+  text-align: center;
+
+  &__title {
+    font-size: 18rem;
+    font-weight: 700;
+    color: $primary-color;
+    margin: 0;
+    line-height: 1;
+
+    @media (max-width: $tablet) {
+      font-size: 12rem;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 6rem;
+    }
+  }
+
+  &__message {
+    font-size: 2.25rem;
+    font-weight: 500;
+    color: $primary-color;
+    margin: 4rem 0 8rem;
+    max-width: 60rem;
+    line-height: 1.4;
+
+    @media (max-width: $tablet) {
+      font-size: 1.8rem;
+      margin: 3rem 0 6rem;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 1.125rem;
+      margin: 2rem 0 4rem;
+      line-height: 1.6;
+    }
+  }
+
+  &__link {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: $primary-color;
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 0.875rem;
+    }
+  }
+}

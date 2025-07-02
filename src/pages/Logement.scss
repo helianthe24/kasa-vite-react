@@ -1,0 +1,137 @@
+@use '../styles/main' as *;
+
+// ===============================================
+// LOGEMENT PAGE
+// ===============================================
+
+.logement {
+  @include container;
+  min-height: calc(100vh - #{$header-height} - 209px);
+
+  &__info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $spacing-xl;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__details {
+    flex: 1;
+
+    @media (max-width: $mobile) {
+      margin-bottom: $spacing-md;
+    }
+  }
+
+  &__title {
+    color: $primary-color;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-md;
+
+    @media (max-width: $mobile) {
+      font-size: $font-size-lg;
+      margin-bottom: $spacing-xs;
+    }
+  }
+
+  &__location {
+    color: $primary-color;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-xl;
+
+    @media (max-width: $mobile) {
+      font-size: $font-size-sm;
+      margin-bottom: $spacing-lg;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    gap: $spacing-sm;
+    flex-wrap: wrap;
+
+    @media (max-width: $mobile) {
+      gap: $spacing-xs;
+    }
+  }
+
+  &__tag {
+    background-color: $primary-color;
+    color: $white;
+    padding: 3px 39px;
+    border-radius: $border-radius-md;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-medium;
+
+    @media (max-width: $mobile) {
+      padding: 5px 20px;
+      font-size: $font-size-xs;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  &__host-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $spacing-xl;
+
+    @media (max-width: $mobile) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0;
+    }
+  }
+
+  &__host {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+
+    @media (max-width: $mobile) {
+      gap: $spacing-xs;
+    }
+  }
+
+  &__host-name {
+    color: $primary-color;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-medium;
+    text-align: right;
+    max-width: 93px;
+
+    @media (max-width: $mobile) {
+      font-size: $font-size-xs;
+      max-width: 67px;
+    }
+  }
+
+  &__host-picture {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @media (max-width: $mobile) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__collapses {
+    display: flex;
+    gap: 76px;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      gap: $spacing-lg;
+    }
+  }
+}

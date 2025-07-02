@@ -1,0 +1,7 @@
+@use '../styles/main' as *;
+
+// Layout component styles
+main {
+  min-height: calc(100vh - 200px); // Adjust based on header/footer height
+  padding: 0;
+}

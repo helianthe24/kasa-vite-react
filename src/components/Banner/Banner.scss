@@ -1,25 +1,77 @@
-.banner {
-  position: relative;
-  height: 223px;
-  width: 100%;
-  margin-bottom: 20px;
+@use '../../styles/main' as *;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    filter: brightness(70%);
+// ===============================================
+// BANNER COMPONENT
+// ===============================================
+
+.banner {
+  @include container;
+  margin-bottom: $spacing-2xl;
+
+  @media (max-width: $mobile) {
+    margin-bottom: $spacing-lg;
   }
 
-  h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 1.5rem;
+  &__container {
+    position: relative;
+    height: $banner-height;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    @include flex-center;
+
+    @media (max-width: $mobile) {
+      height: $banner-height-mobile;
+      border-radius: $border-radius-md;
+    }
+
+    // Image de fond
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: var(--banner-image);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    // Overlay sombre
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $banner-overlay;
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    color: $white;
+    font-size: $font-size-3xl;
+    font-weight: $font-weight-medium;
     text-align: center;
-    padding: 0 1rem;
+    max-width: 705px;
+
+    @media (max-width: $mobile) {
+      font-size: $font-size-xl;
+      max-width: 217px;
+      text-align: left;
+    }
+  }
+
+  // Variante sans texte (pour la page À propos)
+  &--no-text {
+    .banner__container {
+      @media (max-width: $mobile) {
+        height: $banner-height-mobile;
+      }
+    }
   }
 }
