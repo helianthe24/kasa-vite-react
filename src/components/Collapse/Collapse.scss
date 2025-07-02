@@ -1,0 +1,41 @@
+.collapse {
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #ff6060;
+  color: white;
+
+  .collapse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+
+    h2 {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .arrow {
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .arrow.open {
+      transform: rotate(180deg);
+    }
+  }
+
+  .collapse-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 1rem;
+
+    &.open {
+      max-height: 500px; // assez grand pour s'ouvrir sans couper
+      padding: 1rem;
+    }
+  }
+}

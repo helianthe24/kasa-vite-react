@@ -1,0 +1,20 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+
+  nav {
+    display: flex;
+    gap: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #000;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}
