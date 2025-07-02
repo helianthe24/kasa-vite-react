@@ -1,12 +1,20 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import './Collapse.scss'
 
 function Collapse({ title, children }) {
   const [isOpen, setIsOpen] = useState(false)
+  const [height, setHeight] = useState(0)
+  const contentRef = useRef(null)
 
   const toggleCollapse = () => {
     setIsOpen(!isOpen)
   }
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(contentRef.current.scrollHeight)
+    }
+  }, [children])
 
   return (
     <div className={`collapse ${isOpen ? 'collapse--open' : ''}`}>
@@ -18,8 +26,13 @@ function Collapse({ title, children }) {
           </svg>
         </div>
       </div>
-      <div className="collapse__content">
-        <div className="collapse__inner">
+      <div
+        className="collapse__content"
+        style={{
+          maxHeight: isOpen ? `${height}px` : '0px',
+        }}
+      >
+        <div className="collapse__inner" ref={contentRef}>
           <div className="collapse__text">{children}</div>
         </div>
       </div>

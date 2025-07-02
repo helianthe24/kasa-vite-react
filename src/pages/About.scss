@@ -22,6 +22,7 @@
     flex-direction: column;
     gap: $spacing-xl;
     margin-top: $spacing-xl;
+    margin-bottom: $spacing-3xl;
 
     @media (max-width: $mobile) {
       gap: $spacing-lg;

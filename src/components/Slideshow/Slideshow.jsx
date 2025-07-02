@@ -3,30 +3,45 @@ import './Slideshow.scss'
 
 function Slideshow({ pictures }) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   const length = pictures.length
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? length - 1 : prevIndex - 1
-    )
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === 0 ? length - 1 : prevIndex - 1
+      )
+      setIsTransitioning(false)
+    }, 150)
   }
 
   const goToNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === length - 1 ? 0 : prevIndex + 1
-    )
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === length - 1 ? 0 : prevIndex + 1
+      )
+      setIsTransitioning(false)
+    }, 150)
   }
 
   if (length === 0) return null
 
   return (
     <div className={`slideshow ${length === 1 ? 'slideshow--single' : ''}`}>
-      <img
-        src={pictures[currentIndex]}
-        alt={`slide ${currentIndex + 1}`}
-        className="slideshow__image"
-      />
+      <div className="slideshow__image-container">
+        <img
+          src={pictures[currentIndex]}
+          alt={`slide ${currentIndex + 1}`}
+          className={`slideshow__image ${
+            isTransitioning ? 'slideshow__image--transitioning' : ''
+          }`}
+        />
+      </div>
 
       {length > 1 && (
         <>

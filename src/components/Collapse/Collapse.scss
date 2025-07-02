@@ -64,11 +64,14 @@
     border-radius: 0 0 $border-radius-sm $border-radius-sm;
     max-height: 0;
     overflow: hidden;
-    transition: max-height $transition-slow ease-out;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
   }
 
   &__inner {
     padding: $spacing-2xl $spacing-lg $spacing-md;
+    transition: transform 0.3s ease;
+    transform: translateY(-10px);
 
     @media (max-width: $mobile) {
       padding: 23px 7px 19px 12px;
@@ -103,11 +106,11 @@
   // État ouvert
   &--open {
     .collapse__content {
-      max-height: 300px; // Ajuster selon le contenu
+      opacity: 1;
+    }
 
-      @media (max-width: $mobile) {
-        max-height: 250px;
-      }
+    .collapse__inner {
+      transform: translateY(0);
     }
   }
 
