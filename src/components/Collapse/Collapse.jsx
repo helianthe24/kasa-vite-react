@@ -14,7 +14,7 @@ function Collapse({ title, children }) {
     if (contentRef.current) {
       setHeight(contentRef.current.scrollHeight)
     }
-  }, [children])
+  }, [children, isOpen])
 
   return (
     <div className={`collapse ${isOpen ? 'collapse--open' : ''}`}>

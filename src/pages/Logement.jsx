@@ -3,6 +3,7 @@ import logements from '../data/logements.json'
 import Slideshow from '../components/Slideshow/Slideshow'
 import Collapse from '../components/Collapse/Collapse'
 import Rating from '../components/Rating/Rating'
+import Tag from '../components/Tag/Tag'
 import './Logement.scss'
 
 function Logement() {
@@ -24,9 +25,7 @@ function Logement() {
 
           <div className="logement__tags">
             {logement.tags.map((tag) => (
-              <span key={tag} className="logement__tag">
-                {tag}
-              </span>
+              <Tag key={tag} text={tag} />
             ))}
           </div>
         </div>
